@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::group([],function(){
 	//个人中心主页
 	Route::any('/myself','Home\SelfController@index');
+	//个人信息表单页
+	Route::any('/selfinfo','Home\SelfController@info');
+	//安全中心
+	Route::any('/safety','Home\SelfController@safe');
+	//地址管理
+	Route::any('/addr','Home\SelfController@addr');
 });
 
 
