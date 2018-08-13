@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Model\Admin\Users;
+
 
 class LoginController extends Controller
 {
@@ -22,7 +25,7 @@ class LoginController extends Controller
     	// 判断用户名
     	$uname = $request->input('uname');
 
-    	$res = DB::table('users')->where('uname',$uname)->first();
+    	$res = Users::with('info')->where('uname',$uname)->first();
 
     	if(!$res){
     		
