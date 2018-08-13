@@ -66,8 +66,10 @@ class SelfController extends Controller
      */
     public function safe()
     {
+    	$user = session::get('user');
+    	dump($user); 
 
-    	return view('home.myself.self_safe');
+    	return view('home.myself.self_safe',['user'=>$user]);
 
     } 
      /*

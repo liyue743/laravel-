@@ -12,8 +12,10 @@
 						<div class="user-infoPic">
 
 							<div class="filePic">
-							@if(session('user')['info']->profile)
-								<img class="am-circle am-img-thumbnail" src="{{session('user')->info->profile}}" alt="">
+
+							@if(session::get('user')->profile)
+							
+								<img class="am-circle am-img-thumbnail" src="{{session('user')}}" alt="">
 							@else
 								<img class="am-circle am-img-thumbnail" src="/home/images/getAvatar.do.jpg" alt="">
 							@endif
