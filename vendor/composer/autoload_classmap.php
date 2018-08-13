@@ -25,6 +25,8 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Home\\LoginController' => $baseDir . '/app/Http/Controllers/Home/LoginController.php',
+    'App\\Http\\Controllers\\Home\\Orders\\OrdersController' => $baseDir . '/app/Http/Controllers/Home/Orders/OrdersController.php',
+    'App\\Http\\Controllers\\Home\\Orders\\PayController' => $baseDir . '/app/Http/Controllers/Home/Orders/PayController.php',
     'App\\Http\\Controllers\\Home\\RegisterController' => $baseDir . '/app/Http/Controllers/Home/RegisterController.php',
     'App\\Http\\Controllers\\admin\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/LoginController.php',
     'App\\Http\\Controllers\\home\\SelfController' => $baseDir . '/app/Http/Controllers/Home/SelfController.php',

@@ -74,7 +74,7 @@
 							<div class="m-order">
 								<div class="s-bar">
 									<i class="s-icon"></i>我的订单
-									<a class="i-load-more-item-shadow" href="order.html">全部订单</a>
+									<a class="i-load-more-item-shadow" href="/home/orders">全部订单</a>
 								</div>
 								<ul>
 									<li><a href="order.html"><i><img src="/home/images/pay.png"/></i><span>待付款</span></a></li>
@@ -236,7 +236,7 @@
 					<li class="person">
 						<p><i class="am-icon-balance-scale" style="color:red;"></i> 我的交易</p>
 						<ul>
-							<li><a href="order.html">订单管理</a></li>
+							<li><a href="/home/orders">订单管理</a></li>
 							<li> <a href="change.html">退款售后</a></li>
 							<li> <a href="comment.html">评价商品</a></li>
 						</ul>

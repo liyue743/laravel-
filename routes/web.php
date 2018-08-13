@@ -106,10 +106,21 @@ Route::group(['middleware'=>'login'],function() {
 
 
 
+
+
+
+
 //=================张大仙====================//
-Route::resource('/admin/orders','Admin\OrdersController');//订单资源路由	
+//============后台=================
+Route::resource('/admin/orders','Admin\OrdersController');				//订单资源路由	
 Route::any('/orders/info/{id}','Admin\OrdersinfoController@index'); 	//订单详情路由
-Route::get('/fahuo','Admin\PublicController@fahuo');		//发货AJAX传值	
+Route::get('/fahuo','Admin\PublicController@fahuo');					//发货AJAX传值	
+//============前台=================
+Route::resource('/home/orders','Home\Orders\OrdersController');		//前台订单资源路由
+Route::resource('/home/orderspay','Home\Orders\PayController');		//订单结算资源路由
+Route::any('/home/ordersaddr','Home\Orders\PayController@addr');		//收货地址路由
+Route::any('/home/deladdr/{id}','Home\Orders\PayController@deladdr');	//删除地址路由
+Route::any('home/cart','Home\Orders\PayController@cart');				//购物车地址路由
 //=================张大仙====================//
 
 
