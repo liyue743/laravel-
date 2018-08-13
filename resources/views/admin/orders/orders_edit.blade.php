@@ -1,12 +1,11 @@
-@extends('layouts.admin')
+@extends('/admin/index')
 <link rel="stylesheet" type="text/css" href="/houtai/css/sweetalert.css">
 
 @section('content')
 <script src="/houtai/js/sweetalert.min.js"></script>
 <script src="/houtai/js/sweetalert-dev.js"></script>
     <legend style="font-size: 40px;text-align: center;">修改订单信息</legend>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-    </fieldset>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;"></fieldset>
     @if( session('session') )
         <script>
             var session =' {{ session('session') }}' ;
@@ -14,7 +13,8 @@
             swal(session);
         </script>
     @endif
-    <form class="layui-form" action="/admin/orders/{{$orders[0]->oid}}" method="post" style="padding-left:35%;">
+    <!-- 表单开始 -->
+    <form class="layui-form" action="/admin/orders/{{$orders[0]->oid}}?page={{$page}}" method="post" style="padding-left:35%;">
         {{ csrf_field() }}
         {{ method_field('PUT') }}
         <div class="layui-form-item">
@@ -54,7 +54,7 @@
         <div class="layui-form-item">
             <label for="level-kiss" class="layui-form-label">订单状态</label>
             <div class="layui-input-inline">
-                <input disabled type="text" id="level-kiss" name="status" value="@if( $orders[0]->status == 0 )未发货@elseif( $orders[0]->status == 1 )已发货@elseif( $orders[0]->status == 2 )已收货@elseif( $orders[0]->status == 3 )订单已取消@endif"
+                <input disabled type="text" id="level-kiss" name="status" value="@if( $orders[0]->status == 0 )待发货@elseif( $orders[0]->status == 1 )代收货@elseif( $orders[0]->status == 2 )交易完成@elseif( $orders[0]->status == 3 )订单取消@endif"
                 lay-verify="required" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux" style="color: red;">

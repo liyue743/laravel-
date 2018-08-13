@@ -128,6 +128,21 @@
                             </a>
                         </li>
                     </ul>
+                </li>          
+                <li class="list" >
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        订单管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>                                                  
+                            <a href="/admin/orders">
+                                <i class="iconfont">&#xe6a7;</i>
+                                浏览订单
+                            </a>
+                        </li>
+                    </ul>
                 </li>       
                 <li class="list" >
                     <a href="javascript:;">
