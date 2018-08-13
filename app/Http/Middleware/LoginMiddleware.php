@@ -15,7 +15,7 @@ class LoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(session('admins')){
+        if(session('username')){
 
         return $next($request);
         
