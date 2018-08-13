@@ -30,14 +30,18 @@ Route::group([],function(){
 /**************liyue网站后台***************/
 Route::group(['middleware'=>'login'],function(){
 
-	Route::resource('/admins','Admin\AdminsController');//管理员
+	Route::resource('/admins','Admin\AdminsController');//管理员资源路由
 	Route::get('/admin','Admin\AdminController@index');//后台的首页
+	
+
 });
 
 Route::any('admin/login','Admin\LoginController@login');//后台登录
 Route::any('admin/dologin','Admin\LoginController@dologin');
 Route::any('admin/captcha','Admin\LoginController@captcha');
-Route::any('admin/loginout','Admin\LoginController@loginout');
+Route::any('admin/logout','Admin\LoginController@logout');
+
+
 
 /*******************************************/
 

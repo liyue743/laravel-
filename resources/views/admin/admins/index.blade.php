@@ -3,6 +3,13 @@
 @section('title',$title)
 
 @section('content')
+
+<!-- 中部开始 -->
+    <div class="wrapper">
+    <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
 		 <form class="layui-form xbs" action="" >
                 <div class="layui-form-pane" style="text-align: center;">
                   <div class="layui-form-item" style="display: inline-block;">
@@ -24,7 +31,7 @@
             </form>
             <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button>
             <button class="layui-btn"  onclick="location.replace('/admins/create')"><i class="layui-icon">&#xe608;</i>添加</button>
-            <span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
+            <span class="x-right" style="line-height:40px">共有数据：{{count($res)}} 条</span></xblock>
             <table class="layui-table">
                 <thead>
                     <tr>
@@ -98,23 +105,49 @@
                             <a style="text-decoration:none" onclick="member_stop(this,'10001')" href="javascript:;" title="停用">
                                 <i class="layui-icon">&#xe601;</i>
                             </a>
-                            <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-edit.html','4','','510')"
+                            <a title="编辑" href="javascript:;" onclick="location.replace('/admins/{{$v->id}}/edit')"
                             class="ml-5" style="text-decoration:none">
                                 <i class="layui-icon">&#xe642;</i>
                             </a>
-                            <a style="text-decoration:none"  onclick="member_password('修改密码','member-password.html','10001','600','400')"
+                         <!--    <a style="text-decoration:none"  onclick="member_password('修改','member-password.html','10001','600','400')"
                             href="javascript:;" title="修改密码">
                                 <i class="layui-icon">&#xe631;</i>
-                            </a>
-                            <a title="删除" href="javascript:;" onclick="member_del(this,'1')" 
+                            </a> -->
+                            
+                            <form id="fm" action="/admins/{{$v->id}}" method="post" style="display:inline;">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <a title="删除" href="javascript:;" onclick="del()" 
                             style="text-decoration:none">
                                 <i class="layui-icon">&#xe640;</i>
                             </a>
+                         
+                            </form>
                         </td>
                     </tr>
-                     @endforeach
-                  
-                   
+                    @endforeach
                 </tbody>
             </table>
+
+            <!-- 右侧内容框架，更改从这里结束 -->
+         </div>
+        </div>
+        <!-- 右侧主体结束 -->
+    </div>
+    <!-- 中部结束 -->
+    <script>
+            
+            function del(){
+
+            var fm =document.getElementById('fm');
+
+            layer.confirm('确认要删除吗？',function(index){           
+
+            fm.submit();
+                          
+         
+            });
+        
+        }
+    </script>    
 @endsection
