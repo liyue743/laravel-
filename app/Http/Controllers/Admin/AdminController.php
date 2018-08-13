@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Goods;
+use App\Model\Admin\Cate;
 
 class AdminController extends Controller
 {
@@ -15,14 +16,27 @@ class AdminController extends Controller
     }
 
     //商品的后台无限分类功能，前台遍历需要，用类名到前台遍历
+    // static public function getCateMessage($cates=[],$pid=0)
+    // {
+    //     if(empty($cates)){
+    //         $cates = Cate::get();
+    //     }
+    //     $tmp=[];
+    //     foreach($cates as $k=>$v){
+    //         if($v->pid == $pid){
+    //             $v->sub = self::getCateMessage($cates,$v->cid);
+    //             $tmp[$v->cid]=$v;
+    //         }
+    //     }
+    //     return $tmp;
+    // }
     public static function getCateMessage($pid)
     {
-
         $cate = Cate::where('pid',$pid)->get();
         $arr = [];
         foreach($cate as $k => $v){
             if($v->pid == $pid){
-                $v->sub = self::getCateMessage($v->id);
+                $v->sub = self::getCateMessage($v->cid);
                 $arr[] = $v;
             }
         }  

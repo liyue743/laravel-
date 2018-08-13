@@ -38,13 +38,7 @@
 				<div class="am-tabs-bd">
 					<div class="am-tab-panel am-active">
 						<form method="post">
-				
-				<div class="user-email">
-					<label for="email">
-					<i class="am-icon-envelope-o"></i></label>
-					<input type="email" name="" id="email" placeholder="请输入邮箱账号">
-                </div>	
-
+										
 				<div class="user-email">
 					<label for="email">
 					<i class="am-icon-envelope-o"></i></label>

@@ -30,18 +30,20 @@ Route::group([],function(){
 /**************liyue网站后台***************/
 Route::group(['middleware'=>'login'],function(){
 
-	Route::resource('/admins','Admin\AdminsController');//管理员资源路由
+	Route::resource('/admins','Admin\AdminsController');//管理员
 	Route::get('/admin','Admin\AdminController@index');//后台的首页
-	
+/*************huanghuan   luyou******************/	
+	Route::get('/admin/{id}/status','Admin\AdminController@status');//商品上架下架
 
+	Route::resource('/cate','Admin\CateController');//商品类别的整体增删改查
+	Route::resource('/goods','Admin\GoodsController');//商品整体的增删改查
+/*************huanghuan   luyou******************/
 });
 
 Route::any('admin/login','Admin\LoginController@login');//后台登录
 Route::any('admin/dologin','Admin\LoginController@dologin');
 Route::any('admin/captcha','Admin\LoginController@captcha');
-Route::any('admin/logout','Admin\LoginController@logout');
-
-
+Route::any('admin/loginout','Admin\LoginController@loginout');
 
 /*******************************************/
 
@@ -53,20 +55,6 @@ Route::any('home/loginout','Home\LoginController@loginout');//前台用户退出
 Route::any('home/register','Home\RegisterController@regist');//前台注册
 
 /******************************************/
-
-
-
-/*************huanghuan   luyou******************/	
-Route::group([],function(){
-	
-	Route::get('/admin/{id}/status','Admin\AdminController@status');//商品上架下架
-
-	Route::resource('/cate','Admin\CateController');//商品类别的整体增删改查
-	Route::resource('/goods','Admin\GoodsController');//商品整体的增删改查
-});
-/*************huanghuan   luyou******************/
-
-
 
 /*****************何其威——用户**********************/
 //用户管理理由组
@@ -111,24 +99,20 @@ Route::any('/users/show/{id}','Admin\UsersinfoController@show');
 
 
 
-
-
-
-
 //=================张大仙====================//
-//============后台=================
-Route::resource('/admin/orders','Admin\OrdersController');				//订单资源路由	
+Route::resource('/admin/orders','Admin\OrdersController');//订单资源路由	
 Route::any('/orders/info/{id}','Admin\OrdersinfoController@index'); 	//订单详情路由
-Route::get('/fahuo','Admin\PublicController@fahuo');					//发货AJAX传值	
-//============前台=================
-Route::resource('/home/orders','Home\Orders\OrdersController');		//前台订单资源路由
-Route::resource('/home/orderspay','Home\Orders\PayController');		//订单结算资源路由
-Route::any('/home/ordersaddr','Home\Orders\PayController@addr');		//收货地址路由
-Route::any('/home/deladdr/{id}','Home\Orders\PayController@deladdr');	//删除地址路由
-Route::any('home/cart','Home\Orders\PayController@cart');				//购物车地址路由
+Route::get('/fahuo','Admin\PublicController@fahuo');		//发货AJAX传值	
 //=================张大仙====================//
 
 
 
 
+/***************************huanghuanqiantaishangpin***********************************/
+Route::group([],function() {
+	//商品详情路由
+	Route::get('/home/goods/{id}','Home\GoodsController@player');
+	
 
+});
+/***************************huanghuanqiantaishangpin***********************************/
