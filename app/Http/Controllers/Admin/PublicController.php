@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
-use App\Model\Admin\Orders;
-use App\Model\Admin\Details;
+use App\Model\Admin\orders\Orders;
+use App\Model\Admin\orders\Details;
 
 //============张大仙公共控制器==========
 class PublicController extends Controller
