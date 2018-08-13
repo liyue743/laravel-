@@ -313,7 +313,7 @@ layui.use('layer', function(){
          
             });
         
-     }
+        }
       
         
 </script>
