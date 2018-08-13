@@ -17,21 +17,24 @@ class OrdersinfoController extends Controller
     {       
         //接收订单ID,时间,状态
             $orders = $request -> input();
+            $orders['oid'] = $id;
         //查询订单中的商品ID
-            $res = Orders::find($id)->details;
+            $res = DB::table('details')->where('oid',$id)->get();
         //判断订单是否有效
             if( count($res) ){
                 //查询商品信息   
                     foreach($res as $k => $v){
-                        $data[] = Details::find($v->gid)->goods;
+                        $data[] = DB::table('goods')->where('gid',$v->gid)->get();
                         $sum[] = $v->sum;
                     }
                 //二维数组改成一位数组
                     foreach ($data as $key =>$v){
                         $new_data[]=$v[0];
                     }
+            // dd($data);
+
                 //发送至页面
-                return view('/admin/orders_info',[
+                return view('/admin/orders/orders_info',[
                                     'title'=>'订单详情',
                                     'data' => $data,
                                     'tsd' =>$orders,
