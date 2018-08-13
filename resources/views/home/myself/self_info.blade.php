@@ -8,18 +8,18 @@
 						<hr/>
 
 						<!--头像 -->
+						<form action="/selfinfo/update/{{$user->id}}" method="post" class="am-form am-form-horizontal" enctype="multipart/form-data">
+						{{csrf_field()}}
 						<div class="user-infoPic">
-
-							<div class="filePic">
-								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-								@if(!$user['info']->profile)
-
-								<img height="150" ="150" class="am-circle am-img-thumbnail" src="/home/images/getAvatar.do.jpg" alt="" >
+							<div class="filePic">								
+								@if($user['info']->profile)
+								<img  src="{{$user['info']->profile}}" width="100px" style="border-radius:50%;" alt="" >
+								<input type="file" name="profile" >
 								@else
-								<img height="150" ="150" class="am-circle am-img-thumbnail" src="{{$user['info']->profile}}" alt="" >
+								<input type="file" class="inputPic" name="profile" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
+								<img  class="am-circle am-img-thumbnail" src="/home/images/getAvatar.do.jpg" alt="" >
 								@endif
 							</div>
-
 							<p class="am-form-help">头像</p>
 
 							<div class="info-m">
@@ -31,11 +31,10 @@
 						</div>
 						<!--个人信息 -->
 						<div class="info-main">
-							<form action="/info/update" method="post" class="am-form am-form-horizontal">
 								<div class="am-form-group">
 									<label for="user-name2" class="am-form-label">昵称</label>
 									<div class="am-form-content">
-										<input type="text" id="user-name2" value="{{$user['info']->nickname}}" placeholder="nickname">
+										<input type="text" id="user-name2" name="nickname" value="{{$user['info']->nickname}}" placeholder="nickname">
                                           <small>昵称长度不能超过40个汉字</small>
 									</div>
 								</div>
@@ -46,14 +45,14 @@
 									<div class="am-form-content sex">
 									
 										<label class="am-radio-inline">								
-											<input type="radio" name="radio10" @if($user['info']->sex == 'm') checked @endif value="male" data-am-ucheck> 男
+											<input type="radio" name="sex" @if($user['info']->sex == 'm') checked @endif value="m" data-am-ucheck> 男
 										</label>
 										
-										<label class="am-radio-inline">									<input type="radio" name="radio10" @if($user['info']->sex == 'w') checked @endif value="female" data-am-ucheck> 女
+										<label class="am-radio-inline">									<input type="radio" name="sex" @if($user['info']->sex == 'w') checked @endif value="w" data-am-ucheck> 女
 										</label>
 										
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" @if($user['info']->sex == 'x') checked @endif value="secret" data-am-ucheck> 保密
+											<input type="radio" name="sex" @if($user['info']->sex == 'x') checked @endif value="x" data-am-ucheck> 保密
 										</label>
 										
 									</div>
@@ -62,14 +61,20 @@
 								<div class="am-form-group">
 									<label for="user-phone" class="am-form-label">电话</label>
 									<div class="am-form-content">
-										<input id="user-phone" placeholder="telephonenumber" type="tel" value="{{$user->utel}}">
+										<input id="user-phone" name="utel" readonly	placeholder="telephonenumber" type="tel" value="{{$user->utel}}">
 									</div>
 								</div>
 								<div class="am-form-group">
 									<label for="user-email" class="am-form-label">电子邮件</label>
 									<div class="am-form-content">
-										<input id="user-email" placeholder="Email" value="{{$user['info']->email}}" type="email">
+										<input id="user-email" name="email" placeholder="Email" value="{{$user['info']->email}}" type="email">
 
+									</div>
+								</div>
+								<div class="am-form-group">
+									<label for="user-email" class="am-form-label">签名</label>
+									<div class="am-form-content">
+										<textarea id="user-sign" name="sign">{{$user['info']->sign}}</textarea>
 									</div>
 								</div>
 								<div class="am-form-group address">

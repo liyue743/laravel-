@@ -11,7 +11,8 @@
 		<link href="/home/css/systyle.css" rel="stylesheet" type="text/css">
 		<link href="/home/css/addstyle.css" rel="stylesheet" type="text/css">
 		<link href="/home/css/infstyle.css" rel="stylesheet" type="text/css">
-		
+		<link href="/home/css/stepstyle.css" rel="stylesheet" type="text/css">
+
 		<script src="/home/AMazeUI/assets/js/jquery.min.js" type="text/javascript"></script>
 		<script src="/home/AMazeUI/assets/js/amazeui.js" type="text/javascript"></script>	
 	</head>
@@ -25,11 +26,11 @@
 						<ul class="message-l">
 							<div class="topMessage">
 								<div class="menu-hd">
-									@if(!Session::has('userinfo'))
-			                            <a href="#" target="_top" class="h">亲，请登录</a>
-			                            <a href="#" target="_top">免费注册</a>
+									@if(!Session::has('user'))
+			                            <a href="/home/login" target="_top" class="h">亲，请登录</a>
+			                            <a href="/home/register" target="_top">免费注册</a>
 			                        @else
-			                          尊敬的 &nbsp;<a href="#" target="_top" class="h">{{session('userinfo')->uname}}</a> &nbsp;欢迎您!
+			                          尊敬的 &nbsp;<a href="#" target="_top" class="h">{{session('user')->uname}}</a> &nbsp;欢迎您!
 			                        @endif
 								</div>
 							</div>
@@ -71,7 +72,7 @@
 			   <div class="long-title"><span class="all-goods">全部分类</span></div>
 			   		<div class="nav-cont">
 						<ul>
-							<li class="index"><a href="#">首页</a></li>
+							<li class="index"><a href="/">首页</a></li>
 	                             <li class="qc"><a href="#">闪购</a></li>
 	                             <li class="qc"><a href="#">限时抢</a></li>
 	                             <li class="qc"><a href="#">团购</a></li>

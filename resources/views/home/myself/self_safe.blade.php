@@ -1,5 +1,6 @@
 @extends('home/myself/self_index')
 @section('form')
+
 				
 				<div class="user-safety">
 						<div class="am-cf am-padding">
@@ -11,13 +12,17 @@
 						<div class="user-infoPic">
 
 							<div class="filePic">
+							@if(session('user')['info']->profile)
+								<img class="am-circle am-img-thumbnail" src="{{session('user')->info->profile}}" alt="">
+							@else
 								<img class="am-circle am-img-thumbnail" src="/home/images/getAvatar.do.jpg" alt="">
+							@endif
 							</div>
 
 							<p class="am-form-help">头像</p>
 
 							<div class="info-m">
-								<div><b>用户名：<i>小叮当</i></b></div>
+								<div><b>用户名：<i>{{session('user')->uname}}</i></b></div>
                                 <div class="safeText">
                                   	<a href="safety.html">账户安全:<em style="margin-left:20px ;">60</em>分</a>
 									<div class="progressBar"><span style="left: -95px;" class="progress"></span></div>
@@ -34,7 +39,7 @@
 										<div class="fore2"><small>为保证您购物安全，建议您定期更改密码以保护账户安全。</small></div>
 									</div>
 									<div class="fore3">
-										<a href="password.html">
+										<a href="/password">
 											<div class="am-btn am-btn-secondary">修改</div>
 										</a>
 									</div>

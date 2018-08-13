@@ -20,10 +20,15 @@ Route::group([],function(){
 	Route::any('/myself','Home\SelfController@index');
 	//个人信息表单页
 	Route::any('/selfinfo','Home\SelfController@info');
+	//修改个人信息
+	Route::post('/selfinfo/update/{id}','Home\selfController@info_update');
 	//安全中心
 	Route::any('/safety','Home\SelfController@safe');
+	//修改用户密码页
+	Route::any('/password','Home\SelfController@pass');
 	//地址管理
 	Route::any('/addr','Home\SelfController@addr');
+
 });
 
 
@@ -53,7 +58,7 @@ Route::any('home/register','Home\RegisterController@regist');//前台注册
 
 
 /*************huanghuan   luyou******************/	
-Route::group([],function(){
+Route::group(['middleware'=>'login'],function(){
 	
 	Route::get('/admin/{id}/status','Admin\AdminController@status');//商品上架下架
 
@@ -66,7 +71,7 @@ Route::group([],function(){
 
 /*****************何其威——用户**********************/
 //用户管理理由组
-Route::group([],function() {
+Route::group(['middleware'=>'login'],function() {
 	//用户停用站
 	Route::get('/users/dels',function() {
 		return view('admin/users/users_dels');
@@ -78,10 +83,10 @@ Route::group([],function() {
 	//修改密码页
 	Route::get('/users/pass/{id}','Admin\UsersinfoController@pass');
 	//ajax验证用户名
-	Route::any('/checkuname','admin\AjaxController@checkuname');
+	Route::any('/checkuname','Admin\AjaxController@checkuname');
 	//验证密码
 	Route::post('/users/dopass/{id}','Admin\UsersinfoController@dopass');
-	//用户个人信息
+	//用户个人信息展示
 	Route::any('/users/show/{id}','Admin\UsersinfoController@show');
 	//Ajax批量删除
 	Route::any('/users/dels','Admin\AjaxController@delusers');
@@ -89,7 +94,7 @@ Route::group([],function() {
 	Route::resource('/users','Admin\UsersController');
 });
 
-Route::group([],function() {
+Route::group(['middleware'=>'login'],function() {
 	//商品评论资源路由
 	Route::resource('/commonts','Admin\CommontsController');
 	
@@ -97,12 +102,6 @@ Route::group([],function() {
 });
 
 
-
-/***********何其威——用户相关服辅助功能路由*************/
-Route::any('/checkuname','Admin\AjaxController@checkuname');
-Route::any('/users/dels','Admin\AjaxController@delusers');
-Route::any('/users/show/{id}','Admin\UsersinfoController@show');
-/***********何其威——用户相关服辅助功能路由*************/
 
 
 

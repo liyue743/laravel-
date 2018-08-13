@@ -93,7 +93,6 @@
 								</div>
 								<div class="s-content">
 									<ul class="lg-list">
-
 										<li class="lg-item">
 											<div class="item-info">
 												<a href="#">
@@ -152,12 +151,10 @@
 																<li>【光谷关山分部】的派件员【关山代派】正在派件 电话:*2015-12-19 14:27:28</li>
 																<li class="s-omit"><a data-spm-anchor-id="a1z02.1.1998049142.7" target="_blank" href="//wuliu.taobao.com/user/order_detail_new.htm?spm=a1z02.1.1998049142.7.8BJBiJ&amp;trade_id=1479374251166800&amp;seller_id=1651462988&amp;tracelog=yimaidaologistics">··· 查看全部</a></li>
 																<li>您的订单开始处理2015-12-17 14:27:50</li>
-
 															</ul>
 														</div>
 													</div>
 												</div>
-
 											</div>
 											<div class="lg-confirm">
 												<a class="i-btn-typical" href="#">确认收货</a>
@@ -172,7 +169,6 @@
 						</div>
 					</div>
 					<div class="wrap-right">
-
 						<!-- 日历-->
 						<div class="day-list">
 							<div class="s-bar">
@@ -204,7 +200,6 @@
 								<a class="follow " target="_blank">关注</a>
 							</div>
 						</div>
-
 						<!--热卖推荐 -->
 						<div class="new-goods">
 							<div class="s-bar">
@@ -255,11 +250,11 @@
 						</ul>
 					</li>
 					<li class="person">
+					
 						<p><i class="am-icon-qq" style="color:red;"></i> 在线客服</p>
 						<ul>
 							<li> <a href="consultation.html">商品咨询</a></li>
-							<li> <a href="suggest.html">意见反馈</a></li>							
-							
+							<li> <a href="suggest.html">意见反馈</a></li>													
 							<li> <a href="news.html">我的消息</a></li>
 						</ul>
 					</li>

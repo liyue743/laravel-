@@ -27,11 +27,10 @@
                     <div class="topMessage">
                         <div class="menu-hd">
                             <a href="/home/login" target="_top" class="h">@if(session("user")) {{session("user")->uname}}  
-                            <a href="/home/loginout">退出</a> @else 亲，请登录 
-                           
-
+                            <a href="/home/loginout">退出</a>
+                             @else
+                              亲，请登录                            
                             @endif</a>
-
                             <a href="/home/register" target="_top">免费注册</a>
                         </div>
                     </div>
