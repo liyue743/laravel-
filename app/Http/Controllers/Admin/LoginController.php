@@ -39,31 +39,21 @@ class LoginController extends Controller
     		return back()->with('error','用户名错误');
     	}
     	 
-        // 判断验证码
-        
-        $code = $request->input('code');
-        if(strtolower($code) != session('code')){
-            return back()->with('error','验证码错误');
-        } 
-
     	// 判断密码
     	$pass = $request->input('password');
+    	if(!Hash::check($pass,$res->password)){
+    		return back()->with('error','密码错误');
+    	}
 
-    	if(Hash::check($pass,$res->password)){
-
-    		session(['admins'=>$res]);
-
-            return redirect('/admin');
-
-    	}else{
-
-           return back()->with('error','密码错误');
-        }
-
-    
+    	// 判断验证码
+    	
+    	$code = $request->input('code');
+    	if($code != session('code')){
+    		return back()->with('error','验证码错误');
+    	} 
     	//存储session信息，中间件使用
-    	// session(['username'=>$res->username]);
-    	// return redirect('/admin');
+    	session(['username'=>$res->username]);
+    	return redirect('/admin');
     	
     }
 
@@ -95,9 +85,9 @@ class LoginController extends Controller
         $builder->output();
     }
 
-    public function logout()
+    public function loginout()
     {
-    	session(['admins'=>null]);
+    	session(['username'=>null]);
     	return redirect('/admin/login');
     }
     

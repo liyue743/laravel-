@@ -18,7 +18,7 @@ class Goods extends Model
     public function goodstospic()
     {
         //该关联为一个商品对应多个图片，所以使用关键字hasMany，
-        return $this->hasMany('App\Model\Admin\Goodsimg','s_gid');
+        return $this->hasMany('App\Model\Admin\Goodsimg','s_gid','gid');
     }
     //商品主表关联商品类别表的方法
     public function goodstocate()

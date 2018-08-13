@@ -13,6 +13,6 @@ class orders extends Model
 
      public function details()
     {
-        return $this->hasMany('App\Model\Admin\orders\details','oid','oid');
+        return $this->hasMany('App\Model\Admin\details','oid','id');
     }
 }
